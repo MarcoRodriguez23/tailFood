@@ -15,7 +15,7 @@
             <div class="flex flex-col">
                 <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
                     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <thead class="text-xs text-center text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
                                 <th scope="col" class="py-3 px-6">
                                     Name
@@ -27,24 +27,40 @@
                                     Description
                                 </th>
                                 <th scope="col" class="py-3 px-6">
-                                    Edit
+                                    Options
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($categories as $category)
                                 <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                                    <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap text-center dark:text-white">
                                         {{$category->name}}
                                     </th>
                                     <td class="py-4 px-6">   
-                                        <img src="{{Storage::url($category->image)}}" class="w-16 h-16 rounded" alt="image">
+                                        <img src="{{Storage::url($category->image)}}" class="w-16 h-16 rounded mx-auto" alt="image">
                                     </td>
-                                    <td class="py-4 px-6">
+                                    <td class="py-4 px-6 text-center">
                                         {{$category->description}}
                                     </td>
-                                    <td class="py-4 px-6">
-                                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                    <td>
+                                        <div class="flex space-x-2 justify-evenly">
+                                            <a href="{{route('admin.categories.edit',$category->id)}}" 
+                                                class="font-medium text-center px-4 py-2 bg-blue-500 hover:bg-blue-700 rounded-lg text-white"
+                                                >
+                                                Edit
+                                            </a>
+                                            <form action="{{route('admin.categories.destroy',$category->id)}}" 
+                                                    method="POST" 
+                                                    onsubmit="return confirm('Are you sure ?');"
+                                                    class="px-4 py-2 text-center bg-red-500 hover:bg-red-700 rounded-lg  text-white"
+                                                >
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit">Delete</button>
+                                            </form>
+                                        </div>
+                                        
                                     </td>
                                 </tr>
                             @endforeach
