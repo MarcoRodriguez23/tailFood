@@ -38,11 +38,7 @@ class CategoryController extends Controller
      */
     public function store(CategoryStoreRequest $request)
     {
-        //almacenar la imagen
-        if (!is_dir(public_path('categories'))) {
-            mkdir(public_path('categories'));
-        }
-        
+        //almacenar la imagen       
         $image = $request->file('image')->store('public/categories');
 
         Category::create([
