@@ -53,7 +53,7 @@
                                     </td>
                                     
                                     <td class="py-4 px-6 text-center">
-                                        {{$reservation->table_id}}
+                                        {{$reservation->table->name}}
                                     </td>
                                     
                                     <td class="py-4 px-6 text-center">
