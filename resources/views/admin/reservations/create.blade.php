@@ -20,55 +20,83 @@
                     <div class="sm:col-span-6">
                       <label for="first_name" class="block text-sm font-medium text-gray-700">First Name</label>
                       <div class="mt-1">
-                        <input type="text" id="first_name" name="first_name" class="block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal sm:text-sm sm:leading-5" />
+                        <input type="text" id="first_name" name="first_name" class="block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal sm:text-sm sm:leading-5
+                        @error('fist_name') border border-red-700 @enderror" />
                       </div>
+                      @error('first_name')
+                        <div class="text-sm text-red-500">{{ $message }}</div>
+                      @enderror
                     </div>
                     
                     <div class="sm:col-span-6">
                       <label for="last_name" class="block text-sm font-medium text-gray-700">Last Name</label>
                       <div class="mt-1">
-                        <input type="text" id="last_name" name="last_name" class="block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal sm:text-sm sm:leading-5" />
+                        <input type="text" id="last_name" name="last_name" class="block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal sm:text-sm sm:leading-5
+                        @error('last_name') border border-red-700 @enderror" />
                       </div>
+                      @error('last_name')
+                        <div class="text-sm text-red-500">{{ $message }}</div>
+                      @enderror
                     </div>
                     
                     <div class="sm:col-span-6">
                       <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
                       <div class="mt-1">
-                        <input type="email" id="email" name="email" class="block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal sm:text-sm sm:leading-5" />
+                        <input type="email" id="email" name="email" class="block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal sm:text-sm sm:leading-5
+                        @error('email') border border-red-700 @enderror" />
                       </div>
+                      @error('email')
+                        <div class="text-sm text-red-500">{{ $message }}</div>
+                      @enderror
                     </div>
                     
                     <div class="sm:col-span-6">
                       <label for="tel_number" class="block text-sm font-medium text-gray-700">Tel Number</label>
                       <div class="mt-1">
-                        <input type="number" id="tel_number" name="tel_number" class="block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal sm:text-sm sm:leading-5" />
+                        <input type="number" id="tel_number" name="tel_number" class="block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal sm:text-sm sm:leading-5
+                        @error('tel_number') border border-red-700 @enderror" />
                       </div>
+                      @error('tel_number')
+                        <div class="text-sm text-red-500">{{ $message }}</div>
+                      @enderror
                     </div>
                     
                     <div class="sm:col-span-6">
                       <label for="res_date" class="block text-sm font-medium text-gray-700">Reservation date</label>
                       <div class="mt-1">
-                        <input type="date" id="res_date" name="res_date" class="block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal sm:text-sm sm:leading-5" />
+                        <input type="date" id="res_date" name="res_date" class="block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal sm:text-sm sm:leading-5
+                        @error('res_date') border border-red-700 @enderror" />
                       </div>
+                      @error('res_date')
+                        <div class="text-sm text-red-500">{{ $message }}</div>
+                      @enderror
                     </div>
                     
                     <div class="sm:col-span-6">
                       <label for="table_id" class="block text-sm font-medium text-gray-700">Table</label>
                       <div class="mt-1">
-                        <select id="table_id" name="table_id" class="form-multiselect block w-full mt-1">
+                        <select id="table_id" name="table_id" class="form-multiselect block w-full mt-1
+                          @error('table_id') border border-red-700 @enderror">
                           <option disabled selected>--Choice an option--</option>
                           @foreach ($tables as $table)
                             <option value="{{$table->id}}">{{$table->name}}</option>
                           @endforeach  
                         </select>
                       </div>
+                      @error('table_id')
+                        <div class="text-sm text-red-500">{{ $message }}</div>
+                      @enderror
                     </div>
                     
                     <div class="sm:col-span-6">
                       <label for="guest_number" class="block text-sm font-medium text-gray-700">Guest number</label>
                       <div class="mt-1">
-                        <input type="text" id="guest_number" name="guest_number" class="block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal sm:text-sm sm:leading-5" />
+                        <input type="text" id="guest_number" name="guest_number" class="block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal sm:text-sm sm:leading-5
+                        @error('guest_number') border border-red-700 @enderror" />
                       </div>
+                      @error('guest_number')
+                        <div class="text-sm text-red-500">{{ $message }}</div>
+                      @enderror
                     </div>
                     
                     
